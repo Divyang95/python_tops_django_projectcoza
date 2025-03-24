@@ -1,0 +1,85 @@
+{% extends 'seller-header.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Product</title>
+<!--===============================================================================================-->
+</head>
+<body class="animsition">
+	
+	<!-- Header -->
+
+	
+	<!-- Product -->
+	<div class="bg0 m-t-23 p-b-140">
+		<div class="container">
+			<div class="flex-w flex-sb-m p-b-52">
+				
+				<!-- Search product -->
+				<div class="dis-none panel-search w-full p-t-10 p-b-15">
+					<div class="bor8 dis-flex p-l-15">
+						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+							<i class="zmdi zmdi-search"></i>
+						</button>
+
+						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Search">
+					</div>	
+				</div>
+
+				<!-- Filter -->
+			</div>
+
+			<div class="row isotope-grid">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="{{ product.product_picture.url }}" alt="IMG-PRODUCT" style="width: 250px;height: 300px;">
+
+							<a href="{% url 'seller-product-details' pk=product.pk %}">
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									{{product.product_name}}
+								</a>
+
+								<span class="stext-105 cl3">
+									Price:{{product.product_price}}
+								</span>
+								<span class="stext-105 cl3">
+									Details:{{product.product_desc}}
+								</span>
+								<span class="stext-105 cl3">
+									Size:{{product.product_size}}
+								</span>
+                                <br>
+								<span class="stext-105 cl3">
+									<a href="{% url 'seller-edit-product' pk=product.pk %}"><input type="button" value="EDIT" class="btn btn-primary"></a>
+									<a href="{% url 'seller-delete-product' pk=product.pk %}"><input type="button" value="DELETE" class="btn btn-danger"></a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
+			<!-- Load more -->
+			<!-- <div class="flex-c-m flex-w w-full p-t-45">
+				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+					Load More
+				</a>
+			</div> -->
+		</div>
+	</div>
+		
+
+
+
+</body>
+</html>
+{% endblock %}

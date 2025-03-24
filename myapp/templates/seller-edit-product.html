@@ -1,0 +1,156 @@
+{% extends 'seller-header.html' %}
+{% load static %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Edit Product</title>
+	
+<!--===============================================================================================-->
+</head>
+<body class="animsition">
+	
+	
+
+
+
+	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('{% static 'images/bg-01.jpg' %}');">
+		<h2 class="ltext-105 cl0 txt-center">
+			Edit Product  
+		</h2>
+	</section>	
+
+
+	<!-- Content page -->
+	<section class="bg0 p-t-104 p-b-116">
+		<div class="container">
+			<div class="flex-w flex-tr">
+				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
+					{% if msg %}
+						<b style="color: blue;">{{msg}}</b>
+					{% endif %}
+					<form method="post" action="{% url 'seller-edit-product' pk=product.pk %}" enctype="multipart/form-data">
+						{% csrf_token %}
+						<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Edit Product   
+						</h4> 
+						<div class="bor8 m-b-20 how-pos4-parent">
+                            {% if product.product_category == 'men' %}
+                                <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="product_category" id="">
+                                    <option value="">---Select Product Category---</option>
+                                    <option value="men" selected>Men</option>
+                                    <option value="women">Women</option>
+                                    <option value="kids">Kids</option>
+
+                                </select>
+                            {% elif product.product_category == 'women' %}
+                                <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="product_category" id="">
+                                    <option value="">---Select Product Category---</option>
+                                    <option value="men">Men</option>
+                                    <option value="women" selected>Women</option>
+                                    <option value="kids">Kids</option>
+
+                                </select>
+                            {% elif product.product_category == 'kids' %}
+                                <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="product_category" id="">
+                                    <option value="">---Select Product Category---</option>
+                                    <option value="men">Men</option>
+                                    <option value="women">Women</option>
+                                    <option value="kids" selected>Kids</option>
+
+                                </select>
+                            {% endif %}
+							
+							
+						</div>
+
+						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="product_name" value="{{product.product_name}}">
+							
+						</div>
+                        <div class="bor8 m-b-20 how-pos4-parent">
+							<select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="product_size" id="">
+                                {% if product.product_size == 's' %}
+                                    <option value="">---Select Product Size---</option>
+								    <option value="s" selected>S</option>
+								    <option value="m">M</option>
+								    <option value="l">L</option>
+								    <option value="xl">XL</option>
+								    <option value="xxl">XXL</option>
+                                {% elif product.product_size == 'm' %}
+                                    <option value="">---Select Product Size---</option>
+								    <option value="s">S</option>
+								    <option value="m" selected>M</option>
+								    <option value="l">L</option>
+								    <option value="xl">XL</option>
+								    <option value="xxl">XXL</option>
+                                {% elif product.product_size == 'l' %}
+                                    <option value="">---Select Product Size---</option>
+								    <option value="s">S</option>
+								    <option value="m">M</option>
+								    <option value="l" selected>L</option>
+								    <option value="xl">XL</option>
+								    <option value="xxl">XXL</option>
+                                {% elif product.product_size == 'xl' %}
+                                    <option value="">---Select Product Size---</option>
+								    <option value="s">S</option>
+								    <option value="m">M</option>
+								    <option value="l">L</option>
+								    <option value="xl" selected>XL</option>
+								    <option value="xxl">XXL</option>
+                                {% elif product.product_size == 'xxl' %}
+                                    <option value="">---Select Product Size---</option>
+								    <option value="s">S</option>
+								    <option value="m">M</option>
+								    <option value="l">L</option>
+								    <option value="xl">XL</option>
+								    <option value="xxl" selected>XXL</option>
+                                {% endif %}
+								
+
+							</select>
+							
+						</div>
+
+						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="number" name="product_price"  value="{{product.product_price}}">
+						</div>
+                        
+
+						<div class="bor8 m-b-30">
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="product_desc">{{product.product_desc}}</textarea>
+						</div>
+
+                        <div class="bor8 m-b-20 how-pos4-parent">
+							<img src="{{product.product_picture.url}}" alt="" style="width: 100px;height:100px; border-radius: 50%;">
+						</div>
+						
+						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="product_picture">
+						</div>
+
+						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+							Update Product  
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>	
+
+
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+
+</body>
+</html>
+{% endblock %}
