@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-c$@)4%y$#ty!(c2vej-tlzh8ud#bbv5n0+d&zq_tnspauv^(at
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1','.pythonanywhere.com']
 
 
 # Application definition
@@ -92,7 +92,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
+                },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
@@ -118,7 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = BASE_DIR / 'static' 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -126,3 +126,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+STRIPE_PUBLIC_KEY = 'pk_test_51R9NAV4EEpZEfzJ03ZAc6FyUCLxrqTSJzGBS2QAKUnoVpKJh0bgBkumqdUDrxXMnjvQycQRIpoFa4LH81neeVabB00FpMHGqir'
+STRIPE_PRIVATE_KEY = 'sk_test_51R9NAV4EEpZEfzJ0BRU2Disd8TRVACYpJ9ZjbVKXEBjGpt82f9oDK1gI2QImyfC2FqaO38Fj4osAP8QMoLWaEIiV00aoH0reaF'
+
+

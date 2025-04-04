@@ -21,5 +21,17 @@ urlpatterns = [
     path('product-details/<int:pk>/', views.product_details, name='product-details'), 
     path('seller-edit-product/<int:pk>/', views.seller_edit_product, name='seller-edit-product'),  
     path('seller-delete-product/<int:pk>/', views.seller_delete_product, name='seller-delete-product'),  
+    path('add-to-wishlist/<int:pk>/', views.add_to_wishlist, name='add-to-wishlist'),  
+    path('remove-from-wishlist/<int:pk>/', views.remove_from_wishlist, name='remove-from-wishlist'),  
+    path('wishlist/', views.wishlist, name='wishlist'),  
+    path('add-to-cart/<int:pk>/', views.add_to_cart, name='add-to-cart'),  
+    path('remove-from-cart/<int:pk>/', views.remove_from_cart, name='remove-from-cart'),  
+    path('cart/', views.cart, name='cart'),  
+    path('change-qty/<int:pk>/', views.change_qty, name='change_qty'),
+    path('create-checkout-session/', views.create_checkout_session, name='payment'),
+    path('success/', views.success, name='success'),
+    path('cancel/', views.cancel, name='cancel'),
+    path('myorder/', views.myorder, name='myorder'), #here name and html url should match compulsory
+
 
 ] 

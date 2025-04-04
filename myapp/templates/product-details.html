@@ -60,8 +60,16 @@
                                 <br>
 								<span class="stext-105 cl3">
 									{% if request.session.email %}
-										<a href="{% url 'seller-edit-product' pk=product.pk %}"><input type="button" value="Add To Cart" class="btn btn-primary"></a>
-										<a href="{% url 'seller-delete-product' pk=product.pk %}"><input type="button" value="Add To Wishlist" class="btn btn-primary"></a>
+										{% if cart_flag == False %}
+											<a href="{% url 'add-to-cart' pk=product.pk %}"><input type="button" value="Add To Cart" class="btn btn-primary"></a>
+										{% else %}
+											<a href="{% url 'remove-from-cart' pk=product.pk %}"><input type="button" value="Remove From Cart" class="btn btn-danger"></a>
+										{% endif %}
+										{% if wishlist_flag == False %}
+											<a href="{% url 'add-to-wishlist' pk=product.pk %}"><input type="button" value="Add To Wishlist" class="btn btn-primary"></a>
+										{% else %}
+											<a href="{% url 'remove-from-wishlist' pk=product.pk %}"><input type="button" value="Remove From Wishlist" class="btn btn-danger"></a>
+										{% endif %}
 									{% else %}
 										<a href="{% url 'login' %}"><input type="button" value="Login" class="btn btn-primary"></a>
 									{% endif %}
