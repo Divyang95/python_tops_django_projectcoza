@@ -29,6 +29,7 @@ urlpatterns = [
     path('cart/', views.cart, name='cart'),  
     path('change-qty/<int:pk>/', views.change_qty, name='change_qty'),
     path('create-checkout-session/', views.create_checkout_session, name='payment'),
+    path('shopping_cart/', views.shopping_cart, name='shopping_cart'),
     path('success/', views.success, name='success'),
     path('cancel/', views.cancel, name='cancel'),
     path('myorder/', views.myorder, name='myorder'), #here name and html url should match compulsory

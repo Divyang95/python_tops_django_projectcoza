@@ -375,4 +375,7 @@ def myorder(request):
     carts = Cart.objects.filter(user=user,payment_status=True)
     return render(request,'myorder.html',{'carts':carts})
 
+def shopping_cart(request):
+    return render(request, 'shoping-cart.html')
+
 
